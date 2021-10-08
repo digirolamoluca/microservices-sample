@@ -37,7 +37,7 @@
     "jquery": "^3.5.1",
     "core-js": "^3.6.5",
     "rxjs": "^6.5.5",
-    "rxjs-compat": "^6.5.5",
+    "rxjs-compat": "^6.6.7",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
