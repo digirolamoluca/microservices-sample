@@ -76,7 +76,8 @@ pipeline {
          //$ sh 'git remote add origin https://github.com/digirolamoluca/microservices-sample.git'
           sh 'git add Results/*'
           sh 'git commit -m "Add report File"'
-          sh 'git push origin master'
+          //% sh 'git push origin master'
+          sh 'git push origin HEAD:master'
           
         }
         } 
