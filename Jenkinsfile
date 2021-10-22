@@ -77,6 +77,7 @@ pipeline {
           sh 'git add Results/*'
           sh 'git commit -m "Add report File"'
           //% sh 'git push origin master'
+          sh 'git checkout -B master'
           sh 'git push -u origin master'
           
         }
