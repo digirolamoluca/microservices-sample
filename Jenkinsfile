@@ -79,7 +79,7 @@ pipeline {
          //DA FARE SOLO LA PRIMA VOLTA: sh 'git remote add origin https://github.com/digirolamoluca/microservices-sample.git'
           //sh 'git init'
           sh 'git add Linux_report.html'
-          sh 'git commit -m "Add report File"'
+          sh 'git commit -m "Add report"'
          // sh 'ls'
          // sh 'git config --global user.name "digirolamoluca"'
          // sh 'git config --global user.email "lucadigirolamo@hotmail.it"'
