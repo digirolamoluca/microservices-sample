@@ -76,9 +76,8 @@ pipeline {
          //DA FARE SOLO LA PRIMA VOLTA: sh 'git remote add origin https://github.com/digirolamoluca/microservices-sample.git'
           sh 'git add Results/*'
           sh 'git commit -m "Add report File"'
-          //% sh 'git push origin master'
-          sh 'git checkout -B main'
-          sh 'git push -u origin main'
+          sh 'git pull' //se lavoro sempre nella stessa repository prima di fare il push devo fare pull
+          sh 'git push origin master'
           
         }
         } 
