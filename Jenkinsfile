@@ -64,6 +64,8 @@ pipeline {
        // sh 'inspec exec https://github.com/dev-sec/linux-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:/Results/Linux_Baseline_report.html --chef-license=accept || true'
           sh 'docker stop ${IMAGE}'
           sh 'docker container rm ${IMAGE}'
+     
+        //PER GIT DI QUANTO SEGUE CONFIGURARE UNA CHIAVE SSH
         
         //withCredentials([usernamePassword(credentialsId: 'GIT', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) { 
         
@@ -74,12 +76,13 @@ pipeline {
           //sh 'git remote set-url origin "https://digirolamoluca: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@github.com/digirolamoluca/${JOB_NAME}.git"'
          // sh 'git remote set-url origin "https://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@github.com/digirolamoluca/${JOB_NAME}.git"'
          //sh 'curl https://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@github.com/digirolamoluca/microservices-sample.git'
-         //DA FARE SOLO LA PRIMA VOLTA: sh 'git remote add origin https://github.com/digirolamoluca/microservices-sample.git'
+         //DA FARE SOLO LA PRIMA VOLTA: 
+          sh 'git remote add origin https://github.com/digirolamoluca/microservices-sample.git'
           sh 'git add Linux_report.html'
           sh 'git commit -m "Add report File"'
           sh 'ls'
-          sh 'git config --global user.name "digirolamoluca"'
-          sh 'git config --global user.email "lucadigirolamo@hotmail.it"'
+         // sh 'git config --global user.name "digirolamoluca"'
+         // sh 'git config --global user.email "lucadigirolamo@hotmail.it"'
           sh 'git push origin master'
          // sh 'git pull' //se lavoro sempre nella stessa repository prima di fare il push devo fare pull
           
