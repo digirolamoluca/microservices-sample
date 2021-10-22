@@ -73,11 +73,11 @@ pipeline {
           //sh 'git remote set-url origin "https://digirolamoluca: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@github.com/digirolamoluca/${JOB_NAME}.git"'
          // sh 'git remote set-url origin "https://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@github.com/digirolamoluca/${JOB_NAME}.git"'
          //sh 'curl https://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@github.com/digirolamoluca/microservices-sample.git'
-         //$ sh 'git remote add origin https://github.com/digirolamoluca/microservices-sample.git'
+         //DA FARE SOLO LA PRIMA VOLTA: sh 'git remote add origin https://github.com/digirolamoluca/microservices-sample.git'
           sh 'git add Results/*'
           sh 'git commit -m "Add report File"'
           //% sh 'git push origin master'
-          sh 'git push origin main'
+          sh 'git push -u origin master'
           
         }
         } 
