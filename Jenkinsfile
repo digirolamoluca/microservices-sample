@@ -78,8 +78,10 @@ pipeline {
           sh 'git add Linux_report.html'
           sh 'git commit -m "Add report File"'
           sh 'ls'
+          sh 'git config --global user.name "digirolamoluca"
+          sh 'git config --global user.email "lucadigirolamo@hotmail.it"
           sh 'git push origin master'
-        sh 'git pull' //se lavoro sempre nella stessa repository prima di fare il push devo fare pull
+         // sh 'git pull' //se lavoro sempre nella stessa repository prima di fare il push devo fare pull
           
         }
         } 
