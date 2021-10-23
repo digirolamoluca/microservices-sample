@@ -87,7 +87,7 @@ pipeline {
          // sh 'ls'
          // sh 'git config --global user.name "digirolamoluca"'
          // sh 'git config --global user.email "lucadigirolamo@hotmail.it"'
-       sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git'
+       sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git HEAD:master'
          // sh 'git push origin master'
          // sh 'git pull' //se lavoro sempre nella stessa repository prima di fare il push devo fare pull
           
