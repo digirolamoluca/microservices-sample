@@ -79,7 +79,9 @@ pipeline {
          //DA FARE SOLO LA PRIMA VOLTA: sh 'git remote add origin https://github.com/digirolamoluca/microservices-sample.git'
           //sh 'git init'
        // sh 'git remote set-url origin https://digirolamoluca:gittabbodege9@github.com/digirolamoluca/${JOB_NAME}.git'
-        
+          sh 'git remote remove origin'
+
+          sh 'git remote set-url origin https://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@github.com/digirolamoluca/microservices-sample.git'
           sh 'git add Linux_report.html'
           sh 'git commit -m "Add report"'
          // sh 'ls'
