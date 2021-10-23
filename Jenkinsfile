@@ -64,7 +64,11 @@ pipeline {
        // sh 'inspec exec https://github.com/dev-sec/linux-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:/Results/Linux_Baseline_report.html --chef-license=accept || true'
           sh 'docker stop ${IMAGE}'
           sh 'docker container rm ${IMAGE}'
-     
+      }
+    }
+    
+      stage('Public on git Report inspec'){
+      steps{  
         //PER GIT DI QUANTO SEGUE CONFIGURARE UNA CHIAVE SSH
         
         //withCredentials([usernamePassword(credentialsId: 'GIT', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) { 
