@@ -81,7 +81,7 @@ pipeline {
        // sh 'git remote set-url origin https://digirolamoluca:gittabbodege9@github.com/digirolamoluca/${JOB_NAME}.git'
           sh 'git remote remove origin'
 
-          sh 'git remote set-url origin https://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@github.com/digirolamoluca/microservices-sample.git'
+          sh 'git remote add origin https://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@github.com/digirolamoluca/microservices-sample.git'
           sh 'git add Linux_report.html'
           sh 'git commit -m "Add report"'
          // sh 'ls'
