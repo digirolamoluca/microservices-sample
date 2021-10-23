@@ -74,7 +74,7 @@ pipeline {
         //sh 'curl -u digirolamoluca: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 https://github.com/digirolamoluca/microservices-sample'
           //sh 'git credentialsId: 'digirolamo_token_git', url: "https://github.com/digirolamoluca/microservices-sample"'
           //sh 'git remote set-url origin "https://digirolamoluca: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@github.com/digirolamoluca/${JOB_NAME}.git"'
-          sh 'git remote set-url origin "https://digirolamoluca:secrets.GITHUB_TOKEN@github.com/digirolamoluca/${JOB_NAME}.git"'
+          sh 'git remote set-url origin "https://digirolamoluca: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@github.com/digirolamoluca/${JOB_NAME}.git"'
          //sh 'curl https://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@github.com/digirolamoluca/microservices-sample.git'
          //DA FARE SOLO LA PRIMA VOLTA: sh 'git remote add origin https://github.com/digirolamoluca/microservices-sample.git'
           //sh 'git init'
