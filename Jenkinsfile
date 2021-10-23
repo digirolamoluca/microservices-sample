@@ -79,15 +79,16 @@ pipeline {
          //DA FARE SOLO LA PRIMA VOLTA: sh 'git remote add origin https://github.com/digirolamoluca/microservices-sample.git'
           //sh 'git init'
        // sh 'git remote set-url origin https://digirolamoluca:gittabbodege9@github.com/digirolamoluca/${JOB_NAME}.git'
-          sh 'git remote remove origin'
+          //sh 'git remote remove origin'
 
-          sh 'git remote add origin https://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@github.com/digirolamoluca/microservices-sample.git'
+          //sh 'git remote add origin https://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@github.com/digirolamoluca/microservices-sample.git'
           sh 'git add Linux_report.html'
           sh 'git commit -m "Add report"'
          // sh 'ls'
          // sh 'git config --global user.name "digirolamoluca"'
          // sh 'git config --global user.email "lucadigirolamo@hotmail.it"'
-          sh 'git push origin master'
+       sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git'
+         // sh 'git push origin master'
          // sh 'git pull' //se lavoro sempre nella stessa repository prima di fare il push devo fare pull
           
         }
