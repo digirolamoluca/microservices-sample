@@ -74,9 +74,7 @@ pipeline {
       
           sh 'git add Linux_report.html'
           sh 'git commit -m "Add report"'
-          sh 'git push origin HEAD:master'
-       
-       //sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git HEAD:master'
+          sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git HEAD:master'
   
         }
         }  
