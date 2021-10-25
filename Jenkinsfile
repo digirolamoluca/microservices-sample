@@ -5,12 +5,14 @@ pipeline {
     dockerImage = ''
     DOCKER_TAG = getVersion().trim()
     IMAGE="${JOB_NAME}"
-    token=open("token.txt","r").read()
+    
   }
   
 //lettura token per accesso repository git
-  
-
+  script{
+ def token=readFile(file: 'token.txt')
+   println(token)
+  }
   
   //if is a nodejs app
   
@@ -68,7 +70,7 @@ pipeline {
           sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/php-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:Results/php_report.html --chef-license=accept || true'
           sh 'docker stop ${IMAGE}'
           sh 'docker container rm ${IMAGE}'
-        print(token)
+    
       }
     }
    
