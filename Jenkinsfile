@@ -87,8 +87,11 @@ pipeline {
       steps{  
         //PER GIT DI QUANTO SEGUE CONFIGURARE UNA COPPIA DI CHIAVI SSH E SETTARE PERSONAL ACCESS TOKEN 
         
-          token = readFile(file: 'token.txt')
-          println(token)
+        script {
+          def token = readFile(file: 'token.txt')
+          println(token)       
+               }
+         
         
           sh 'git add Results/*'
           sh 'git commit -m "Add report"'
