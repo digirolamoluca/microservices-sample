@@ -6,7 +6,7 @@ pipeline {
     DOCKER_TAG = getVersion().trim()
     IMAGE="${JOB_NAME}"
     TOKEN = ''
-    
+    TOKEN1 = credentials('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')
   }
   
 //lettura token per accesso repository git
