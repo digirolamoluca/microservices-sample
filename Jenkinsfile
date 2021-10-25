@@ -66,19 +66,20 @@ pipeline {
     }
    
     
-    /*
+    
     stage('Public on git Report inspec'){
       steps{  
-        //PER GIT DI QUANTO SEGUE CONFIGURARE UNA CHIAVE SSH
+        //PER GIT DI QUANTO SEGUE CONFIGURARE UNA COPPIA DI CHIAVI SSH E SETTARE PERSONAL ACCESS TOKEN 
         
       
           sh 'git add Linux_report.html'
           sh 'git commit -m "Add report"'
+          sh 'git push origin HEAD:master'
        
-       sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git HEAD:master'
+       //sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git HEAD:master'
   
         }
-        }  */
+        }  
 
     
     /*
