@@ -98,11 +98,11 @@ pipeline {
           sh 'sudo su | cd'
           sh 'cd /var/lib/jenkins/workspace/microservices-sample'
           sh 'git pull origin master'
-        sh 'git push https://digirolamoluca:${TOKEN}@github.com/digirolamoluca/microservices-sample.git HEAD:master'
+        sh 'git push https://digirolamoluca":"+"$TOKEN"@github.com/digirolamoluca/microservices-sample.git HEAD:master'
         }
         }
         } 
-    
+    //(value: "$registry"+":"+"$DOCKER_TAG", description: 'Parametro', name: '$IMAGE')]
     /*
         sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
         sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:Results/Linux_Baseline_report.html --chef-license=accept || true'
