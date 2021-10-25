@@ -68,24 +68,22 @@ pipeline {
     }
    
     
-    /*
+    
     stage('Public on git Report inspec'){
       steps{  
         //PER GIT DI QUANTO SEGUE CONFIGURARE UNA COPPIA DI CHIAVI SSH E SETTARE PERSONAL ACCESS TOKEN 
         
       
-          sh 'git add Linux_report.html'
-          sh 'git add Apache_report.html'
-          sh 'git add php_report.html'
+          sh 'git add Results/*'
           sh 'git commit -m "Add report"'
           sh 'sudo su | cd'
           sh 'cd /var/lib/jenkins/workspace/microservices-sample'
           sh 'git pull origin master'
-        /*BUG TOKEN:*/  sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git HEAD:master'
-        //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
+        /*BUG TOKEN:*/  sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git HEAD:master'
+    
         }
         }  
-*/
+
     
     /*
         sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
