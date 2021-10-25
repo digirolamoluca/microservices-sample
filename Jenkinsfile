@@ -21,15 +21,14 @@ pipeline {
  
   agent any  
   stages {
-    
+   /* 
     stage('read token') {
            steps {
                script {
-                   def token = readFile(file: 'token.txt')
-                   println(token)
+                   
                }
            }
-       }
+       } */
     
     stage('SonarQube analysis'){
       steps{
@@ -88,7 +87,9 @@ pipeline {
       steps{  
         //PER GIT DI QUANTO SEGUE CONFIGURARE UNA COPPIA DI CHIAVI SSH E SETTARE PERSONAL ACCESS TOKEN 
         
-      
+          def token = readFile(file: 'token.txt')
+          println(token)
+        
           sh 'git add Results/*'
           sh 'git commit -m "Add report"'
           sh 'sudo su | cd'
