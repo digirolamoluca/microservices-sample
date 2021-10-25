@@ -60,6 +60,8 @@ pipeline {
         //Inserire il profilo che si vuole utilizzare, nel caso se ne vogliano utiilizzare più di uno aggiungere un'altra riga con un diverso nome del report
        
           sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:Linux_report.html --chef-license=accept || true'
+          sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/apache-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:Apache_report.html --chef-license=accept || true'  
+          sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/php-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:php_report.html --chef-license=accept || true'
           sh 'docker stop ${IMAGE}'
           sh 'docker container rm ${IMAGE}'
       }
@@ -73,9 +75,12 @@ pipeline {
         
       
           sh 'git add Linux_report.html'
+          sh 'git add Apache_report.html'
+          sh 'git add php_report.html'
           sh 'git commit -m "Add report"'
-          sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git HEAD:master'
-  
+          sh 'echo digirolamoluca | git push origin HEAD:master'
+         // sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git HEAD:master'
+        //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
         }
         }  
 
