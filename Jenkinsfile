@@ -6,7 +6,6 @@ pipeline {
     DOCKER_TAG = getVersion().trim()
     IMAGE="${JOB_NAME}"
     TOKEN = ''
-    TOKEN1 = credentials('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')
   }
   
 //lettura token per accesso repository git
@@ -83,7 +82,7 @@ pipeline {
     }
    
     
-    
+    /*
     stage('Public on git Report inspec'){ 
       steps{  
         //PER GIT DI QUANTO SEGUE CONFIGURARE UNA COPPIA DI CHIAVI SSH E SETTARE PERSONAL ACCESS TOKEN 
@@ -102,8 +101,8 @@ pipeline {
           sh 'git push https://digirolamoluca:${TOKEN}@github.com/digirolamoluca/microservices-sample.git HEAD:master'
         }
         }
-        } 
-    //(value: "$registry"+":"+"$DOCKER_TAG", description: 'Parametro', name: '$IMAGE')]
+        } */
+  
     /*
         sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
         sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:Results/Linux_Baseline_report.html --chef-license=accept || true'
