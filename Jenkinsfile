@@ -54,51 +54,32 @@ pipeline {
       steps{
         sh 'echo Static Security Assesment'
         
-        //sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
+        
         sh 'docker run --name ${IMAGE} -t -d node:latest'
-       // sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:/Linux_Baseline_report2.html --chef-license=accept || true'
+      
         //Inserire il profilo che si vuole utilizzare, nel caso se ne vogliano utiilizzare più di uno aggiungere un'altra riga con un diverso nome del report
-        //$  sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:Results/Linux_Baseline_report.html --chef-license=accept || true'
-       sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:Linux_report.html --chef-license=accept || true'
-        // sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:/Results/Linux_Baseline_report.html --chef-license=accept || true'
-       // sh 'inspec exec https://github.com/dev-sec/linux-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:/Results/Linux_Baseline_report.html --chef-license=accept || true'
+       
+          sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:Linux_report.html --chef-license=accept || true'
           sh 'docker stop ${IMAGE}'
           sh 'docker container rm ${IMAGE}'
       }
     }
+   
     
-      stage('Public on git Report inspec'){
+    /*
+    stage('Public on git Report inspec'){
       steps{  
         //PER GIT DI QUANTO SEGUE CONFIGURARE UNA CHIAVE SSH
         
-        //withCredentials([usernamePassword(credentialsId: 'GIT', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) { 
-        
-     //   withCredentials([usernamePassword(credentialsId: 'GITHUB_TOKEN',passwordVariable: 'GITHUB_TOKEN', usernameVariable: 'GIT_USERNAME')]) {        
-        // sh 'curl -u digirolamoluca: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 https://api.github.com/users/digirolamoluca'
-        //sh 'curl -u digirolamoluca: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 https://github.com/digirolamoluca/microservices-sample'
-          //sh 'git credentialsId: 'digirolamo_token_git', url: "https://github.com/digirolamoluca/microservices-sample"'
-          //sh 'git remote set-url origin "https://digirolamoluca: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@github.com/digirolamoluca/${JOB_NAME}.git"'
-        //  sh 'git remote set-url origin "https://digirolamoluca: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@github.com/digirolamoluca/${JOB_NAME}.git"'
-         //sh 'curl https://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@github.com/digirolamoluca/microservices-sample.git'
-         //DA FARE SOLO LA PRIMA VOLTA: sh 'git remote add origin https://github.com/digirolamoluca/microservices-sample.git'
-          //sh 'git init'
-       // sh 'git remote set-url origin https://digirolamoluca:gittabbodege9@github.com/digirolamoluca/${JOB_NAME}.git'
-          //sh 'git remote remove origin'
-
-          //sh 'git remote add origin https://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@github.com/digirolamoluca/microservices-sample.git'
+      
           sh 'git add Linux_report.html'
           sh 'git commit -m "Add report"'
-         // sh 'ls'
-         // sh 'git config --global user.name "digirolamoluca"'
-         // sh 'git config --global user.email "lucadigirolamo@hotmail.it"'
+       
        sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git HEAD:master'
-         // sh 'git push origin master'
-         // sh 'git pull' //se lavoro sempre nella stessa repository prima di fare il push devo fare pull
-          
+  
         }
-        } 
-    // }
-  //  }
+        }  */
+
     
     /*
         sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
