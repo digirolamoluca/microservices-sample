@@ -79,7 +79,7 @@ pipeline {
           sh 'sudo su | cd'
           sh 'cd /var/lib/jenkins/workspace/microservices-sample'
           sh 'git pull origin master'
-        /*BUG TOKEN:*/  sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git HEAD:master'
+        /*BUG TOKEN:*/  sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git HEAD:master'
     
         }
         }  
