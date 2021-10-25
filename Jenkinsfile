@@ -7,6 +7,9 @@ pipeline {
     IMAGE="${JOB_NAME}"
   }
   
+//lettura token per accesso repository git
+  token=open("token.txt","r").read()
+
   
   //if is a nodejs app
   
@@ -64,11 +67,12 @@ pipeline {
           sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/php-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:Results/php_report.html --chef-license=accept || true'
           sh 'docker stop ${IMAGE}'
           sh 'docker container rm ${IMAGE}'
+        print(token)
       }
     }
    
     
-    
+  /*  
     stage('Public on git Report inspec'){
       steps{  
         //PER GIT DI QUANTO SEGUE CONFIGURARE UNA COPPIA DI CHIAVI SSH E SETTARE PERSONAL ACCESS TOKEN 
@@ -83,7 +87,7 @@ pipeline {
     
         }
         }  
-
+*/
     
     /*
         sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
