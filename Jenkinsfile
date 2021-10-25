@@ -59,9 +59,9 @@ pipeline {
       
         //Inserire il profilo che si vuole utilizzare, nel caso se ne vogliano utiilizzare più di uno aggiungere un'altra riga con un diverso nome del report
        
-          sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:Linux_report.html --chef-license=accept || true'
-          sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/apache-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:Apache_report.html --chef-license=accept || true'  
-          sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/php-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:php_report.html --chef-license=accept || true'
+          sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:Results/Linux_report.html --chef-license=accept || true'
+          sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/apache-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:Results/Apache_report.html --chef-license=accept || true'  
+          sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/php-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:Results/php_report.html --chef-license=accept || true'
           sh 'docker stop ${IMAGE}'
           sh 'docker container rm ${IMAGE}'
       }
