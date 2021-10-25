@@ -88,7 +88,7 @@ pipeline {
         //PER GIT DI QUANTO SEGUE CONFIGURARE UNA COPPIA DI CHIAVI SSH E SETTARE PERSONAL ACCESS TOKEN 
         
         script {
-          TOKEN = readFile(file: 'token.txt')
+          def TOKEN = readFile(file: 'token.txt')
           println(token)       
                }
          
