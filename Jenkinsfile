@@ -5,10 +5,11 @@ pipeline {
     dockerImage = ''
     DOCKER_TAG = getVersion().trim()
     IMAGE="${JOB_NAME}"
+    token=open("token.txt","r").read()
   }
   
 //lettura token per accesso repository git
-  token=open("token.txt","r").read()
+  
 
   
   //if is a nodejs app
