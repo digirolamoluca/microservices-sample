@@ -88,7 +88,7 @@ pipeline {
         //PER GIT DI QUANTO SEGUE CONFIGURARE UNA COPPIA DI CHIAVI SSH E SETTARE PERSONAL ACCESS TOKEN 
         
         script {
-          def TOKEN = readFile(file: 'token.txt')
+          string TOKEN = readFile(file: 'token.txt')
           println(TOKEN)       
                
          
@@ -98,7 +98,7 @@ pipeline {
           sh 'sudo su | cd'
           sh 'cd /var/lib/jenkins/workspace/microservices-sample'
           sh 'git pull origin master'
-        sh 'git push https://digirolamoluca:'TOKEN'@github.com/digirolamoluca/microservices-sample.git HEAD:master'
+          sh 'git push https://digirolamoluca:{TOKEN}@github.com/digirolamoluca/microservices-sample.git HEAD:master'
         }
         }
         } 
