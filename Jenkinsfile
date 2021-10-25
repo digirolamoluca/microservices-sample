@@ -8,7 +8,7 @@ pipeline {
     TOKEN = ''
   }
   
-//lettura token per accesso repository git
+
   
 
   
