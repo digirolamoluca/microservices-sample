@@ -83,7 +83,7 @@ pipeline {
     }
    
     
-    /*
+    
     stage('Public on git Report inspec'){ 
       steps{  
         //PER GIT DI QUANTO SEGUE CONFIGURARE UNA COPPIA DI CHIAVI SSH E SETTARE PERSONAL ACCESS TOKEN 
@@ -94,10 +94,10 @@ pipeline {
           sh 'sudo su | cd'
           sh 'cd /var/lib/jenkins/workspace/microservices-sample'
           sh 'git pull origin master'
-        BUG TOKEN:  sh 'git push https://digirolamoluca:secrets.github_token@github.com/digirolamoluca/microservices-sample.git HEAD:master'
+          sh 'git push https://digirolamoluca:token@github.com/digirolamoluca/microservices-sample.git HEAD:master'
     
         }
-        } */
+        } 
     
     /*
         sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
