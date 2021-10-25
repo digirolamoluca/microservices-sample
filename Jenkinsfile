@@ -56,8 +56,8 @@ pipeline {
         sh 'echo Building Image'
         
         script {
-           //dockerImage = docker.build("$registry:$DOCKER_TAG")
-          dockerImage = docker.build("node:latest")
+           dockerImage = docker.build("$registry:$DOCKER_TAG")
+          //dockerImage = docker.build("node:latest")
           //sh 'docker build https://github.com/digirolamoluca/microservices-sample.git:latest'
           //sh 'docker build -t digirolamo/microservices-sample:latest .'
         } 
@@ -68,7 +68,8 @@ pipeline {
         sh 'echo Static Security Assesment'
         
         
-        sh 'docker run --name ${IMAGE} -t -d node:latest'
+        //sh 'docker run --name ${IMAGE} -t -d node:latest'
+        sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
       
         //Inserire il profilo che si vuole utilizzare, nel caso se ne vogliano utiilizzare più di uno aggiungere un'altra riga con un diverso nome del report
        
