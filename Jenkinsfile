@@ -90,7 +90,7 @@ pipeline {
         script {
           def TOKEN = readFile(file: 'token.txt')
           println(TOKEN)       
-               }
+               
          
         
           sh 'git add Results/*'
@@ -99,7 +99,7 @@ pipeline {
           sh 'cd /var/lib/jenkins/workspace/microservices-sample'
           sh 'git pull origin master'
         sh 'git push https://digirolamoluca:{TOKEN}@github.com/digirolamoluca/microservices-sample.git HEAD:master'
-    
+        }
         }
         } 
     
