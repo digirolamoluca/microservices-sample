@@ -125,13 +125,13 @@ pipeline {
     stage('Push Image') {
       steps{
         sh 'echo Push Image'
-        /*
+        
         script {
           docker.withRegistry( '', registryCredential ) {
             dockerImage.push()
           }
         }
-        */
+        
       }
     }
  }
