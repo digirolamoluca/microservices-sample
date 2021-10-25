@@ -80,6 +80,7 @@ pipeline {
           sh 'git commit -m "Add report"'
           sh 'sudo su | cd'
           sh 'cd /var/lib/jenkins/workspace/microservices-sample'
+          sh 'git pull origin master'
         /*BUG TOKEN:*/  sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git HEAD:master'
         //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
         }
