@@ -5,7 +5,6 @@ pipeline {
     dockerImage = ''
     DOCKER_TAG = getVersion().trim()
     IMAGE="${JOB_NAME}"
-    TOKEN = ''
   }
   
 
@@ -21,14 +20,7 @@ pipeline {
  
   agent any  
   stages {
-   /* 
-    stage('read token') {
-           steps {
-               script {
-                   
-               }
-           }
-       } */
+ 
     
     //prima: ./sonar.sh start
     stage('SonarQube analysis'){
@@ -73,9 +65,7 @@ pipeline {
         sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
       
         //Inserire il profilo che si vuole utilizzare, nel caso se ne vogliano utiilizzare più di uno aggiungere un'altra riga con un diverso nome del report
-       
-         // sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:Results/Linux_report.html --chef-license=accept || true'
-         // sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/apache-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:Results/Apache_report.html --chef-license=accept || true' 
+      
           sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline -t docker://microservices-sample --reporter html:Results/Linux_report.html --chef-license=accept || true'
           sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/apache-baseline -t docker://microservices-sample --reporter html:Results/Apache_report.html --chef-license=accept || true'   
         sh 'docker stop ${IMAGE}'
@@ -91,7 +81,7 @@ pipeline {
         //PER GIT DI QUANTO SEGUE CONFIGURARE UNA COPPIA DI CHIAVI SSH E SETTARE PERSONAL ACCESS TOKEN 
         
         script {
-          TOKEN = readFile(file: 'token.txt')
+          def TOKEN = readFile(file: 'token.txt')
           println(TOKEN)       
                
          
@@ -101,7 +91,7 @@ pipeline {
           sh 'sudo su | cd'
           sh 'cd /var/lib/jenkins/workspace/microservices-sample'
           sh 'git pull origin master'
-          sh 'git push https://digirolamoluca:${TOKEN}@github.com/digirolamoluca/microservices-sample.git HEAD:master'
+          sh 'git push https://digirolamoluca:$TOKEN@github.com/digirolamoluca/microservices-sample.git HEAD:master'
         }
         }
         } */
