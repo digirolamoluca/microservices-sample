@@ -30,6 +30,7 @@ pipeline {
            }
        } */
     
+    //prima: ./sonar.sh start
     stage('SonarQube analysis'){
       steps{
         sh 'echo SonarQube analysis'
