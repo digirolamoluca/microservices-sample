@@ -9,10 +9,8 @@ pipeline {
   }
   
 //lettura token per accesso repository git
-  script{
- def token=readFile(file: 'token.txt')
-   println(token)
-  }
+  
+
   
   //if is a nodejs app
   
@@ -23,6 +21,16 @@ pipeline {
  
   agent any  
   stages {
+    
+    stage('read token') {
+           steps {
+               script {
+                   def token = readFile(file: 'token.txt')
+                   println(token)
+               }
+           }
+       }
+    
     stage('SonarQube analysis'){
       steps{
         sh 'echo SonarQube analysis'
