@@ -4,7 +4,6 @@ pipeline {
     registryCredential = 'digirolamo-dockerhub'
     dockerImage = ''
     DOCKER_TAG = getVersion().trim()
-    TOKEN= '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'
     IMAGE="${JOB_NAME}"
   }
   
@@ -80,7 +79,7 @@ pipeline {
           sh 'sudo su | cd'
           sh 'cd /var/lib/jenkins/workspace/microservices-sample'
           sh 'git pull origin master'
-        /*BUG TOKEN:*/  sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git HEAD:master'
+        /*BUG TOKEN:*/  sh 'git push https://digirolamoluca:secrets.github_token@github.com/digirolamoluca/microservices-sample.git HEAD:master'
     
         }
         }  
