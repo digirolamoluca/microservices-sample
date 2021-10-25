@@ -4,6 +4,7 @@ pipeline {
     registryCredential = 'digirolamo-dockerhub'
     dockerImage = ''
     DOCKER_TAG = getVersion().trim()
+    TOKEN= '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'
     IMAGE="${JOB_NAME}"
   }
   
