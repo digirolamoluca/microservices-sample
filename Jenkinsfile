@@ -63,6 +63,8 @@ pipeline {
         
         //sh 'docker run --name ${IMAGE} -t -d node:latest'
         sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
+        //-d : 	Esegui contenitore in background e stampa ID contenitore
+        //-t :  Assegno una pseudo-TTY per eventuali operazioni future interne al container
       
         //Inserire il profilo che si vuole utilizzare, nel caso se ne vogliano utiilizzare più di uno aggiungere un'altra riga con un diverso nome del report
       
