@@ -1,3 +1,5 @@
+//ATTIVITA' CHE RIGUARDANO IL SINGOLO MICROSERVIZIO
+
 pipeline {
   environment {
     registry = "digirolamo/${JOB_NAME}"   
