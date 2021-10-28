@@ -71,7 +71,7 @@ pipeline {
          withCredentials([usernamePassword(credentialsId: 'jenkins', passwordVariable: '123456789', usernameVariable: 'jenkins')]) {  //$
       
         //Inserire il profilo che si vuole utilizzare, nel caso se ne vogliano utiilizzare più di uno aggiungere un'altra riga con un diverso nome del report
-       //prova senza sudo mettendo "withcredential" ricorda di aggiungere le with credentials anche nella sezione credentials di jenkins
+     
       //$    sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline -t docker://microservices-sample --reporter html:Results/Linux_report.html --chef-license=accept || true'
       //$    sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/apache-baseline -t docker://microservices-sample --reporter html:Results/Apache_report.html --chef-license=accept || true'   
          sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://microservices-sample --reporter html:Results/Linux_report.html --chef-license=accept || true'
@@ -92,7 +92,9 @@ pipeline {
           def TOKEN = readFile(file: 'token.txt')
           println(TOKEN)       
                
-         
+    //     withCredentials([usernamePassword(credentialsId: 'githubserver1', passwordVariable: TOKEN, usernameVariable: 'digirolamoluca')]) {        //$
+          
+        di prova:  {{{{{sh 'git remote set-url origin "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/${JOB_NAME}.git"'}}}}}}
         
           sh 'git add Results/*'
           sh 'git commit -m "Add report"'
@@ -102,7 +104,9 @@ pipeline {
           sh 'git push https://digirolamoluca:$TOKEN@github.com/digirolamoluca/microservices-sample.git HEAD:master'
         }
         }
-        } */
+        }
+   //     } //$ 
+        */
   
  
     
