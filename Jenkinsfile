@@ -67,16 +67,20 @@ pipeline {
         sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
         //-d : 	Esegui contenitore in background e stampa ID contenitore
         //-t :  Assegno una pseudo-TTY per eventuali operazioni future interne al container
+        
+         withCredentials([usernamePassword(credentialsId: 'jenkins', passwordVariable: '123456789', usernameVariable: 'jenkins')]) {  //$
       
         //Inserire il profilo che si vuole utilizzare, nel caso se ne vogliano utiilizzare più di uno aggiungere un'altra riga con un diverso nome del report
        //prova senza sudo mettendo "withcredential" ricorda di aggiungere le with credentials anche nella sezione credentials di jenkins
-          sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline -t docker://microservices-sample --reporter html:Results/Linux_report.html --chef-license=accept || true'
-          sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/apache-baseline -t docker://microservices-sample --reporter html:Results/Apache_report.html --chef-license=accept || true'   
-        sh 'docker stop ${IMAGE}'
+      //$    sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline -t docker://microservices-sample --reporter html:Results/Linux_report.html --chef-license=accept || true'
+      //$    sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/apache-baseline -t docker://microservices-sample --reporter html:Results/Apache_report.html --chef-license=accept || true'   
+         sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://microservices-sample --reporter html:Results/Linux_report.html --chef-license=accept || true'
+          sh 'inspec exec https://github.com/dev-sec/apache-baseline -t docker://microservices-sample --reporter html:Results/Apache_report.html --chef-license=accept || true'   
+           sh 'docker stop ${IMAGE}'
           sh 'docker container rm ${IMAGE}'
     
-      }
-    }
+         }}
+    } //$
    
     
     /*
