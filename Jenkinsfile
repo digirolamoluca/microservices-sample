@@ -1,4 +1,4 @@
-//LE ATTIVITA' CHE RIGUARDANO IL SINGOLO MICROSERVIZIO NON LAVORANO SULL'INTERA APPLICAZIONE
+
 
 pipeline {
   environment {
@@ -31,7 +31,7 @@ pipeline {
         
      
     withSonarQubeEnv('Sonarqube') { 
-      // If you have configured more than one global server connection, you can specify its name
+     
       sh "${tool("sonar_scanner")}/bin/sonar-scanner"
      
         }         
@@ -94,14 +94,14 @@ pipeline {
                
     //     withCredentials([usernamePassword(credentialsId: 'githubserver1', passwordVariable: TOKEN, usernameVariable: 'digirolamoluca')]) {        //$
           
-        di prova:  {{{{{sh 'git remote set-url origin "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/${JOB_NAME}.git"'}}}}}}
+       
         
           sh 'git add Results/*'
           sh 'git commit -m "Add report"'
           sh 'sudo su | cd'
           sh 'cd /var/lib/jenkins/workspace/microservices-sample'
           sh 'git pull origin master'
-          sh 'git push https://digirolamoluca:$TOKEN@github.com/digirolamoluca/microservices-sample.git HEAD:master'
+          sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git HEAD:master'
         }
         }
         }
