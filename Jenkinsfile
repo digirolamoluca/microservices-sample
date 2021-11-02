@@ -19,7 +19,8 @@ pipeline {
    nodejs 'NodeJS'
  }
 
- 
+ //tutti gli agenti sono gestiti da un controller jenkins che rappresenta la nostra macchina su cui è locato jenkins
+  
   agent any  
   stages {
  
