@@ -11,8 +11,6 @@ pipeline {
   
 
   
-
-  
   //if is a nodejs app
   
   tools {
@@ -38,13 +36,7 @@ pipeline {
         }         
       }
     }
-   stage('Snyk analysis'){
-     
-          steps{
-       sh 'echo Snyk analysis'
-         snykSecurity snykInstallation: 'Synk', snykTokenId: 'Snyk'
-          }
-        }
+
     
     
     stage('Building image') {
@@ -53,9 +45,6 @@ pipeline {
         
         script {
            dockerImage = docker.build("$registry:$DOCKER_TAG")
-          //dockerImage = docker.build("node:latest")
-          //sh 'docker build https://github.com/digirolamoluca/microservices-sample.git:latest'
-          //sh 'docker build -t digirolamo/microservices-sample:latest .'
         } 
       }
     }
@@ -73,11 +62,9 @@ pipeline {
       
         //Inserire il profilo che si vuole utilizzare, nel caso se ne vogliano utiilizzare più di uno aggiungere un'altra riga con un diverso nome del report
      
-      //$    sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline -t docker://microservices-sample --reporter html:Results/Linux_report.html --chef-license=accept || true'
-      //$    sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/apache-baseline -t docker://microservices-sample --reporter html:Results/Apache_report.html --chef-license=accept || true'   
-         sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://microservices-sample --reporter html:Results/Linux_report.html --chef-license=accept || true'
+          sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://microservices-sample --reporter html:Results/Linux_report.html --chef-license=accept || true'
           sh 'inspec exec https://github.com/dev-sec/apache-baseline -t docker://microservices-sample --reporter html:Results/Apache_report.html --chef-license=accept || true'   
-           sh 'docker stop ${IMAGE}'
+          sh 'docker stop ${IMAGE}'
           sh 'docker container rm ${IMAGE}'
     
          }}
