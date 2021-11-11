@@ -7,6 +7,10 @@ pipeline {
     dockerImage = ''
     DOCKER_TAG = getVersion().trim()
     IMAGE="${JOB_NAME}"
+    //IMAGEAPI-GATEWAY="api-gateway"
+    //IMAGEWEB-APP="web-application"
+    //IMAGESERVICE-ONE="service-one"
+    //IMAGESERVICE-TWO="service-two"
   }
   
 
@@ -53,8 +57,10 @@ pipeline {
         sh 'echo Static Security Assesment'
         
         
-        //sh 'docker run --name ${IMAGE} -t -d node:latest'
+        
         sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
+        //sh 'docker run --name rabbitmq -t -d rabbitmq'
+        
         //-d : 	Esegui contenitore in background e stampa ID contenitore
         //-t :  Assegno una pseudo-TTY per eventuali operazioni future interne al container
         
@@ -62,8 +68,9 @@ pipeline {
       
         //Inserire il profilo che si vuole utilizzare, nel caso se ne vogliano utiilizzare più di uno aggiungere un'altra riga con un diverso nome del report
      
-          sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://microservices-sample --reporter html:Results/Linux_report.html --chef-license=accept || true'
-          sh 'inspec exec https://github.com/dev-sec/apache-baseline -t docker://microservices-sample --reporter html:Results/Apache_report.html --chef-license=accept || true'   
+           //sh 'inspec exec https://github.com/dev-sec/example -t docker://rabbitmq --reporter html:Results/RabbitMQ_example_report.html --chef-license=accept || true'
+           sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:Results/Linux_report.html --chef-license=accept || true'
+           sh 'inspec exec https://github.com/dev-sec/apache-baseline -t docker://${IMAGE} --reporter html:Results/Apache_report.html --chef-license=accept || true'   
           sh 'docker stop ${IMAGE}'
           sh 'docker container rm ${IMAGE}'
     
