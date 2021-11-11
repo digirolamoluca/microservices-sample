@@ -117,9 +117,9 @@ pipeline {
       echo 'Post success'
       build job: 'SecDevOpsFlowTemplate_microservices-sample', parameters: [string (value: "$registry"+":"+"$DOCKER_TAG", description: 'Parametro', name: '$IMAGE')]
     }
-  }
+  } */
 }
-
+/*
 def getVersion(){
   def commitHash = sh returnStdout: true, script: 'git rev-parse --short HEAD'
   return commitHash
