@@ -7,10 +7,7 @@ pipeline {
     dockerImage = ''
     DOCKER_TAG = getVersion().trim()
     IMAGE="${JOB_NAME}"
-    //IMAGEAPI-GATEWAY="api-gateway"
-    //IMAGEWEB-APP="web-application"
-    //IMAGESERVICE-ONE="service-one"
-    //IMAGESERVICE-TWO="service-two"
+
   }
   
 
