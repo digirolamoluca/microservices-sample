@@ -13,9 +13,9 @@ pipeline {
   
   //if is a nodejs app
   
-  tools {
-   nodejs 'NodeJS'
- }
+//  tools {
+//   nodejs 'NodeJS'
+// }
 
  //tutti gli agenti sono gestiti da un controller jenkins che rappresenta la nostra macchina su cui è locato jenkins
   
