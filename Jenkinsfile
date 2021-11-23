@@ -30,7 +30,7 @@ pipeline {
         
      
     withSonarQubeEnv('Sonarqube') { 
-     
+   //nelle parentesi tool va il nome che stato inserito nella configurazione di sonarscanner tool su jenkins  
       sh "${tool("Sonarqube")}/bin/sonar-scanner"
      
         }         
