@@ -83,7 +83,7 @@ pipeline {
           //def TOKEN = readFile(file: 'token.txt')
           //println(TOKEN)       
                
-         withCredentials([usernamePassword(credentialsId: 'credentialgithub', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) {        
+       /*  withCredentials([usernamePassword(credentialsId: 'credentialgithub', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) {        
           
        
         
@@ -93,7 +93,18 @@ pipeline {
           sh 'cd /var/lib/jenkins/workspace/microservices-sample/Results'
           sh 'git pull origin master'
           sh 'git push https://digirolamoluca:gittabbodege9@github.com/digirolamoluca/microservices-sample.git HEAD:master'
+        }*/
+          
+          
+           withCredentials([usernamePassword(credentialsId: 'credentialgithub', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) {        
+          
+          sh 'git remote set-url origin "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/${JOB_NAME}.git"'
+          sh 'git add Results/*'
+          sh 'git commit -m "Add report File"'
+          sh 'git push origin HEAD:main'
+          
         }
+          
         }
         }
         }  
