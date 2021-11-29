@@ -90,7 +90,7 @@ pipeline {
           sh 'git add Results/*'
           sh 'git commit -m "Add report"'
           sh 'sudo su | cd'
-          sh 'cd /var/lib/jenkins/workspace/microservices-sample'
+          sh 'cd /var/lib/jenkins/workspace/microservices-sample/Results'
           sh 'git pull origin master'
           sh 'git push https://digirolamoluca:gittabbodege9@github.com/digirolamoluca/microservices-sample.git HEAD:master'
         }
