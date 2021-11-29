@@ -83,7 +83,7 @@ pipeline {
           //def TOKEN = readFile(file: 'token.txt')
           //println(TOKEN)       
                
-       //  withCredentials([usernamePassword(credentialsId: 'credentialgithub', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) {        
+       /*  withCredentials([usernamePassword(credentialsId: 'credentialgithub', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) {        
           
        
         
@@ -93,10 +93,10 @@ pipeline {
           sh 'cd /var/lib/jenkins/workspace/microservices-sample/Results'
           sh 'git pull origin master'
           sh 'git push https://digirolamoluca:gittabbodege9@github.com/digirolamoluca/microservices-sample.git HEAD:master'
-        //}
+          }*/
           
           
-       /*    withCredentials([usernamePassword(credentialsId: 'credentialgithub', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) {        
+           withCredentials([usernamePassword(credentialsId: 'credentialgithub', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) {        
           
              
              
@@ -107,7 +107,7 @@ pipeline {
           sh 'git commit -m "Add report File"'
           sh 'git push origin HEAD:main'
           
-        }*/
+        }
           
         }
         }
