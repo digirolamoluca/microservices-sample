@@ -105,7 +105,7 @@ pipeline {
           sh 'git config --global user.name "digirolamoluca"' 
           sh 'git add Results/*'
           sh 'git commit -m "Add report File"'
-          sh 'git push origin HEAD:main'
+          sh 'git push origin HEAD:master'
           
         }
           
