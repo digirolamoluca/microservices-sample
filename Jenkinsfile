@@ -104,7 +104,7 @@ pipeline {
           sh 'git config --global user.email "lucadigirolamo@hotmail.it"'
           sh 'git config --global user.name "Luca"' 
           sh 'sudo su | cd'
-          sh 'cd /var/lib/jenkins/workspace/microservices-sample/Results'
+          sh 'cd /var/lib/jenkins/workspace/microservices-sample'
           sh 'git add Results/*'
           sh 'git commit -m "Add report File"'
           sh 'git push origin HEAD:master'
