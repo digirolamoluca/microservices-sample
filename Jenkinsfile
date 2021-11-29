@@ -105,6 +105,7 @@ pipeline {
           sh 'git config --global user.name "Luca"' 
           sh 'sudo su | cd'
           sh 'cd /var/lib/jenkins/workspace/microservice-sample'
+             //o meglio  sh 'cd /var/lib/jenkins/workspace/${JOB_NAME}'    siccome questa è il progetto che jenkins crea localmente
           sh 'git add Results/*'
           sh 'git commit -m "Add report File"'
           sh 'git push origin HEAD:master'
