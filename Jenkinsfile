@@ -103,6 +103,8 @@ pipeline {
           sh 'git remote set-url origin "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/${JOB_NAME}.git"'
           sh 'git config --global user.email "lucadigirolamo@hotmail.it"'
           sh 'git config --global user.name "Luca"' 
+          sh 'sudo su | cd'
+          sh 'cd /var/lib/jenkins/workspace/microservices-sample/Results'
           sh 'git add Results/*'
           sh 'git commit -m "Add report File"'
           sh 'git push origin HEAD:master'
