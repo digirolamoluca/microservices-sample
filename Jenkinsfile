@@ -75,7 +75,7 @@ pipeline {
    
     
     
-    stage('Public on git Report inspec'){ 
+ /*   stage('Public on git Report inspec'){ 
       steps{  
         //PER GIT DI QUANTO SEGUE CONFIGURARE UNA COPPIA DI CHIAVI SSH E SETTARE PERSONAL ACCESS TOKEN 
         
@@ -96,7 +96,7 @@ pipeline {
           }
           
           
-         /*  withCredentials([usernamePassword(credentialsId: 'credentialgithub', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) {        
+           withCredentials([usernamePassword(credentialsId: 'credentialgithub', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) {        
           
              
              
@@ -110,10 +110,10 @@ pipeline {
           sh 'git commit -m "Add report File"'
           sh 'git push origin HEAD:master'
           
-        } */
+        } 
           
         }
-        }
+        }*/
         }  
         
   
