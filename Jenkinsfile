@@ -102,8 +102,8 @@ pipeline {
              
           sh 'git remote set-url origin "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/${JOB_NAME}.git"'
           sh 'git add Results/*'
-          sh 'git config --global user.email "lucadigirolamo@hotmail.it"
-          sh 'git config --global user.name "digirolamoluca"  
+          sh 'git config --global user.email "lucadigirolamo@hotmail.it"'
+          sh 'git config --global user.name "digirolamoluca"'  
           sh 'git commit -m "Add report File"'
           sh 'git push origin HEAD:main'
           
