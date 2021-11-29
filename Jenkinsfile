@@ -74,16 +74,16 @@ pipeline {
     } //$
    
     
-    /*
+    
     stage('Public on git Report inspec'){ 
       steps{  
         //PER GIT DI QUANTO SEGUE CONFIGURARE UNA COPPIA DI CHIAVI SSH E SETTARE PERSONAL ACCESS TOKEN 
         
         script {
-          def TOKEN = readFile(file: 'token.txt')
-          println(TOKEN)       
+          //def TOKEN = readFile(file: 'token.txt')
+          //println(TOKEN)       
                
-    //     withCredentials([usernamePassword(credentialsId: 'githubserver1', passwordVariable: TOKEN, usernameVariable: 'digirolamoluca')]) {        //$
+         withCredentials([usernamePassword(credentialsId: 'githubserver1', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) {        
           
        
         
@@ -92,12 +92,12 @@ pipeline {
           sh 'sudo su | cd'
           sh 'cd /var/lib/jenkins/workspace/microservices-sample'
           sh 'git pull origin master'
-          sh 'git push https://digirolamoluca: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@github.com/digirolamoluca/microservices-sample.git HEAD:master'
+          sh 'git push https://digirolamoluca:gittabbodege9@github.com/digirolamoluca/microservices-sample.git HEAD:master'
         }
         }
         }
-   //     } //$ 
-        */
+        }  
+        
   
  
     
