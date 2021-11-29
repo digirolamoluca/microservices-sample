@@ -83,7 +83,7 @@ pipeline {
           //def TOKEN = readFile(file: 'token.txt')
           //println(TOKEN)       
                
-         withCredentials([usernamePassword(credentialsId: 'githubserver1', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) {        
+         withCredentials([usernamePassword(credentialsId: 'credentialgithub', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) {        
           
        
         
