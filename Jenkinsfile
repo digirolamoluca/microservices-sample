@@ -86,11 +86,11 @@ pipeline {
          withCredentials([usernamePassword(credentialsId: 'credentialgithub', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) {        
           
        
-        
-          sh 'git add Results/*'
+          sh 'cd /var/lib/jenkins/workspace/microservice-sample/Results'
+          sh 'git add *'
           sh 'git commit -m "Add report"'
           sh 'sudo su | cd'
-          sh 'cd /var/lib/jenkins/workspace/microservices-sample/Results'
+          
           sh 'git pull origin master'
           sh 'git push https://digirolamoluca:gittabbodege9@github.com/digirolamoluca/microservices-sample.git HEAD:master'
           }
