@@ -69,7 +69,9 @@ pipeline {
            sh 'inspec exec https://github.com/dev-sec/apache-baseline -t docker://${IMAGE} --reporter html:Results/Apache_report.html --chef-license=accept || true'   
           sh 'docker stop ${IMAGE}'
           sh 'docker container rm ${IMAGE}'
-    
+           sh 'mkdir Results_${JOB_NAME}'
+           sh 'sudo su | cd'
+           sh 'cp /var/lib/jenkins/workspace/microservice-sample/Results/* /home/digirolamo/Desktop/Results_${JOB_NAME}'
          }}
     } //$
    
