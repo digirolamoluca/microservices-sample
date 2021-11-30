@@ -70,7 +70,7 @@ pipeline {
           sh 'docker stop ${IMAGE}'
           sh 'docker container rm ${IMAGE}'
 
-           sh 'cp /var/lib/jenkins/workspace/microservice-sample/Results/* /home/digirolamo/Desktop'
+          // sh 'cp /var/lib/jenkins/workspace/microservice-sample/Results/* /home/digirolamo/Desktop'
          }}
     } //$
    
