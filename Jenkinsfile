@@ -14,7 +14,7 @@ agent any
   steps{
    sh 'echo SonarQube analysis'
  withSonarQubeEnv('Sonarqube') { 
-  sh "${tool('Sonarqube')}/bin/sonar-scanner"
+  sh '${tool('Sonarqube')}/bin/sonar-scanner'
 }}}
 
 
