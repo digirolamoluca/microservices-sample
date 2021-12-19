@@ -35,6 +35,7 @@ agent any
  sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:Results/Linux_report.html --chef-license=accept || true'
  sh 'inspec exec https://github.com/dev-sec/apache-baseline -t docker://${IMAGE} --reporter html:Results/Apache_report.html --chef-license=accept || true'
  sh 'docker stop ${IMAGE}'
+ sh 'docker container rm ${IMAGE}'
 }}}
 
  stage('Push Image') {
