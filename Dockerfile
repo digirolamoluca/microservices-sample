@@ -1,5 +1,5 @@
 
-FROM node:latest 
+FROM node:25.6.0-bookworm 
 #con FROM specifico l'immagine base da cui partire per costruirne una di nuova 
 
 WORKDIR /usr/src/app
